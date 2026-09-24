@@ -611,13 +611,4 @@ function stopCanvasStream() {
 
 async function activateWakeLock() {
     let success = false;
-    if (isWakeLockSupported()) success = await requestWakeLockAPI();
-    if (!success) success = startCanvasStream();
-    if (!success && !canvasStream) success = startCanvasStream();
-    return success;
-}
-
-async function deactivateWakeLock() {
-    await releaseWakeLockAPI();
-    stopCanvasStream();
-}
+    if (isWakeLockSupported()) success = await request
